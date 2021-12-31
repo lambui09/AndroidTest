@@ -1,4 +1,7 @@
+package com.android.pixelteam.buiduclamtest.utils
+
 import androidx.lifecycle.LiveData
+
 
 /**
  * A generic class that holds a value with its loading status.

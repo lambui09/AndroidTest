@@ -1,6 +1,6 @@
 package com.android.pixelteam.buiduclamtest.base
 
-import DataResult
+import com.android.pixelteam.buiduclamtest.utils.DataResult
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.withContext

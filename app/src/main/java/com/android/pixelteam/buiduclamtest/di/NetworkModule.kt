@@ -2,12 +2,14 @@ package com.android.pixelteam.buiduclamtest.di
 
 import android.app.Application
 import com.android.pixelteam.buiduclamtest.data.remote.api.ApiService
+import com.android.pixelteam.buiduclamtest.data.remote.middleware.InterceptorImpl
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -36,8 +38,15 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(cache: Cache): OkHttpClient {
+    fun provideInterceptor(): Interceptor {
+        return InterceptorImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(cache: Cache, interceptor : Interceptor): OkHttpClient {
         val httpClientBuilder = OkHttpClient.Builder()
+        httpClientBuilder.addInterceptor(interceptor)
         httpClientBuilder.cache(cache)
 
         httpClientBuilder.readTimeout(

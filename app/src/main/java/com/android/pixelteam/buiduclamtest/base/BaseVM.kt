@@ -1,9 +1,9 @@
 package com.android.pixelteam.buiduclamtest.base
 
-import DataResult
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.pixelteam.buiduclamtest.utils.DataResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

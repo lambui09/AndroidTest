@@ -17,6 +17,8 @@ class MainViewModel @Inject constructor(
         get() = _workouts
 
     fun fetchWorkouts() {
-
+        viewModelScope(_workouts) {
+            workoutRepository.fetchWorkout()
+        }
     }
 }

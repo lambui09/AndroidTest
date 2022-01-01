@@ -1,4 +1,4 @@
-package com.android.pixelteam.buiduclamtest
+package com.android.pixelteam.buiduclamtest.utils.enum
 
 enum class Status(value: Int) {
     COMPLETE(2),

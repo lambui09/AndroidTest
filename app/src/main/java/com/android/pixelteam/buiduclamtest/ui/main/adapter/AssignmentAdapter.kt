@@ -1,4 +1,4 @@
-package com.android.pixelteam.buiduclamtest.ui
+package com.android.pixelteam.buiduclamtest.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View

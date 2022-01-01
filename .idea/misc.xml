@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_color_job_item.xml" value="0.24351851851851852" />
+        <entry key="app/src/main/res/drawable/bg_item_job_completed.xml" value="0.24351851851851852" />
+        <entry key="app/src/main/res/drawable/bg_item_job_not_complete.xml" value="0.24351851851851852" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/assignment_item_view.xml" value="0.2557291666666667" />
-        <entry key="app/src/main/res/layout/workout_item_view.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/day_and_job_item_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/day_not_job_item_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/workout_item_view.xml" value="0.25" />
       </map>
     </option>
   </component>

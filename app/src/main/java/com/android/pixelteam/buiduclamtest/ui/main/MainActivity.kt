@@ -1,4 +1,4 @@
-package com.android.pixelteam.buiduclamtest.ui
+package com.android.pixelteam.buiduclamtest.ui.main
 
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.pixelteam.buiduclamtest.R
 import com.android.pixelteam.buiduclamtest.base.BaseActivity
+import com.android.pixelteam.buiduclamtest.ui.main.adapter.WorkoutAdapter
+import com.android.pixelteam.buiduclamtest.ui.main.adapter.WorkoutModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,8 +31,14 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class) {
         }
     }
     private fun observer(workoutAdapter: WorkoutAdapter) {
+        val listWorkout = MutableList<WorkoutModel>()
         with(viewModel) {
             workouts.observe(this@MainActivity, {
+                it?.let {
+                    it.forEach { item ->
+                        listWorkout.add(item)
+                    }
+                }
                 workoutAdapter.submitList(it)
             })
         }

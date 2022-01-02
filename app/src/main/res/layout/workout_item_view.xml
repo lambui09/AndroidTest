@@ -23,23 +23,21 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvTitleJob"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:text="HIIT Tabata 20:10 8x8"
                 android:textColor="@color/C_1E0A3C"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvCountWork"
+                android:id="@+id/tvStatusJob"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:text="15 exercises"
                 android:textColor="@color/C_1E0A3C"
                 android:textSize="13sp"
                 app:fontFamily="sans-serif-medium" />

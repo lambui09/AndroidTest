@@ -6,11 +6,10 @@
     android:orientation="horizontal">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDate"
+        android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="MON"
         android:textColor="@color/C_7B7E91"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -23,17 +22,16 @@
     </androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDay"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="21"
         android:textColor="@color/C_1E0A3C"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate">
+        app:layout_constraintTop_toBottomOf="@+id/tvDay">
 
     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -51,7 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
-            android:text="Full warm up workout"
             android:textColor="@color/C_1E0A3C"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -63,7 +60,6 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="9 exercises"
             android:textColor="@color/C_1E0A3C"
             android:textSize="13sp"
             app:fontFamily="sans-serif-medium"

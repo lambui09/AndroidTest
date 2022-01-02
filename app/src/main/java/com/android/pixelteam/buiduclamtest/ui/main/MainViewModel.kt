@@ -6,6 +6,7 @@ import com.android.pixelteam.buiduclamtest.base.BaseVM
 import com.android.pixelteam.buiduclamtest.data.remote.repository.WorkoutRepository
 import com.android.pixelteam.buiduclamtest.model.entity.Work
 import com.android.pixelteam.buiduclamtest.ui.main.adapter.WorkoutModel
+import com.android.pixelteam.buiduclamtest.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -21,13 +22,7 @@ class MainViewModel @Inject constructor(
         viewModelScope(_workoutModels) {
             workoutRepository
                 .fetchWorkout()
-                .map { it.map(Work::toWorkModel) }
         }
     }
 }
 
-private fun Work.toWorkModel(): WorkoutModel {
-    return when {
-        date != null
-    }
-}

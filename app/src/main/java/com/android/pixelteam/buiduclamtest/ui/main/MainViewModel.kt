@@ -13,14 +13,21 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val workoutRepository: WorkoutRepository
 ) : BaseVM(){
-    val _workouts = MutableLiveData<List<Work>>()
-    val listWorkout = MutableLiveData<List<WorkoutModel>>()
-    val workouts: LiveData<List<Work>>
-        get() = _workouts
+    private val _workoutModels = MutableLiveData<List<WorkoutModel>>()
+    val workoutModels: LiveData<List<WorkoutModel>>
+        get() = _workoutModels
 
     fun fetchWorkouts() {
-        viewModelScope(_workouts) {
-            workoutRepository.fetchWorkout()
+        viewModelScope(_workoutModels) {
+            workoutRepository
+                .fetchWorkout()
+                .map { it.map(Work::toWorkModel) }
         }
+    }
+}
+
+private fun Work.toWorkModel(): WorkoutModel {
+    return when {
+        date != null
     }
 }

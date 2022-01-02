@@ -31,16 +31,8 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class) {
         }
     }
     private fun observer(workoutAdapter: WorkoutAdapter) {
-        val listWorkout = MutableList<WorkoutModel>()
         with(viewModel) {
-            workouts.observe(this@MainActivity, {
-                it?.let {
-                    it.forEach { item ->
-                        listWorkout.add(item)
-                    }
-                }
-                workoutAdapter.submitList(it)
-            })
+            workoutModels.observe(this@MainActivity, workoutAdapter::submitList)
         }
     }
 }

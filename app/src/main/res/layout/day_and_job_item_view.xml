@@ -36,34 +36,66 @@
     </androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rvAssignment"
+        android:id="@+id/containerJob"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_job_item_general"
+        android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/C_1E0A3C"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:fontFamily="sans-serif" />
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/ivSelect"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvJob"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/C_1E0A3C"
-            android:textSize="13sp"
-            app:fontFamily="sans-serif-medium"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/C_1E0A3C"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="sans-serif" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvJob"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/C_1E0A3C"
+                android:textSize="13sp"
+                app:fontFamily="sans-serif-medium" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelect"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@drawable/ic_completed_training"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/containerJob"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

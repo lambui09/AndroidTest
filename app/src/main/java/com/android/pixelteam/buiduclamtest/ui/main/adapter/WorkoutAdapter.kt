@@ -3,11 +3,17 @@ package com.android.pixelteam.buiduclamtest.ui.main.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.pixelteam.buiduclamtest.R
+import com.android.pixelteam.buiduclamtest.extensions.gone
+import com.android.pixelteam.buiduclamtest.extensions.show
+import com.android.pixelteam.buiduclamtest.utils.enum.Status
 
 class WorkoutAdapter : ListAdapter<WorkoutModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -44,11 +50,16 @@ class WorkoutAdapter : ListAdapter<WorkoutModel, RecyclerView.ViewHolder>(DIFF_C
         private var tvDay: AppCompatTextView = itemView.findViewById(R.id.tvDay)
         private var tvTitle: AppCompatTextView = itemView.findViewById(R.id.tvTitle)
         private var tvJob: AppCompatTextView = itemView.findViewById(R.id.tvJob)
+        private var container: ConstraintLayout = itemView.findViewById(R.id.containerJob)
+        private var ivSelect: AppCompatImageView = itemView.findViewById(R.id.ivSelect)
         fun binData(dayAndJob: WorkoutModel.DayAndJobModel) {
             tvDate.text = dayAndJob.dateOfWeek
             tvDay.text = dayAndJob.dayOfWeek
             tvTitle.text = dayAndJob.assignment.title
             tvJob.text = "${dayAndJob.assignment.totalExercise} exercises"
+            val status = dayAndJob.assignment.status
+            container.isActivated = status == Status.COMPLETE.value
+            ivSelect.show(status == Status.COMPLETE.value)
         }
     }
 
@@ -64,9 +75,14 @@ class WorkoutAdapter : ListAdapter<WorkoutModel, RecyclerView.ViewHolder>(DIFF_C
     inner class OnlyJobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var tvTitle: AppCompatTextView = itemView.findViewById(R.id.tvTitleJob)
         private var tvStatusJob: AppCompatTextView = itemView.findViewById(R.id.tvStatusJob)
+        private var container: LinearLayout = itemView.findViewById(R.id.container)
+        private var ivSelect: AppCompatImageView = itemView.findViewById(R.id.ivSelect)
         fun binData(jobWork: WorkoutModel.OnlyJobModel) {
+            val status = jobWork.assignment.status
             tvTitle.text = jobWork.assignment.title
             tvStatusJob.text = "${jobWork.assignment.totalExercise} exercises"
+            container.isActivated = status == Status.COMPLETE.value
+            ivSelect.show(status == Status.COMPLETE.value)
         }
     }
 

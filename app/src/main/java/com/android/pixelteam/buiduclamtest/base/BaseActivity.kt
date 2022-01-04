@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.reflect.KClass
 import androidx.lifecycle.ViewModelLazy
+import com.android.pixelteam.buiduclamtest.utils.dialogManager.DialogManager
+import com.android.pixelteam.buiduclamtest.utils.dialogManager.DialogManagerImpl
 
 abstract class BaseActivity<viewModel : BaseVM>(viewModelClass: KClass<viewModel>) : AppCompatActivity(), BaseView{
     protected abstract fun getLayoutId() : Int
@@ -11,20 +13,22 @@ abstract class BaseActivity<viewModel : BaseVM>(viewModelClass: KClass<viewModel
         viewModelClass,
         { viewModelStore },
         { defaultViewModelProviderFactory })
+    private var dialogManager : DialogManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        dialogManager = DialogManagerImpl(this)
     }
 
     override fun hideLoading() {
-        TODO("Not yet implemented")
+        dialogManager?.hideLoading()
     }
 
     override fun showLoading() {
-        TODO("Not yet implemented")
+        dialogManager?.showLoading()
     }
 
     override fun showLoading(isShow: Boolean) {
-        TODO("Not yet implemented")
+       if (isShow) showLoading() else hideLoading()
     }
 }

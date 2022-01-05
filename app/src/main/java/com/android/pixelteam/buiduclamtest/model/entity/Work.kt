@@ -1,10 +1,17 @@
 package com.android.pixelteam.buiduclamtest.model.entity
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+
+@Entity(tableName = "workout")
 data class Work(
-    @SerializedName("_id") val id: String?,
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "_id")
+    @SerializedName("_id") val id: String,
+    @ColumnInfo(name = "assignments")
     @SerializedName("assignments") val assignments: List<Assignment>,
-    @SerializedName("day") val numberDay: Int,
-    val date: String?,
-    val dayOfWeek: String?
+    @ColumnInfo(name = "day")
+    @SerializedName("day") val numberDay: Int
 )
